@@ -50,33 +50,36 @@ export default function CreateProfile({ setToken, setLoggedIn }) {
         }
     }
 
-    return (<div className="center">
+    return (<div className="login_signup">
         <>
-            <h2> Create a new account!</h2>
-            <form onSubmit={(event) => {
-                event.preventDefault()
-                CreateNewProfile(event)
-            }}>
-                <div className="txt_field">
-                    <input type="text" required value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
-                    <label>Username: </label>
-                </div>
+            <div className="login_signup_page">
+                <h2>Sign Up</h2>
+                <form
+                    onSubmit={(event) => {
+                        event.preventDefault()
+                        CreateNewProfile(event)
+                    }}>
+                    <div className="txt_field">
+                        <input type="text" required value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+                        <label>Username: </label>
+                    </div>
 
-                <div className="txt_field">
-                    <input type="password" required value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
-                    <label>Password: </label>
-                </div>
+                    <div className="txt_field">
+                        <input type="password" required value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+                        <label>Password: </label>
+                    </div>
 
-                <button className="input" type="submit">Sign Up</button>
+                    <button className="login_signup_button" type="submit"><li>Sign Up</li></button>
 
-                <br></br>
-                <div id="createErrorMessage" className="errors"></div>
+                    <br></br>
+                    <div id="createErrorMessage" className="errors"></div>
 
-                <br></br>
-                <div className="signup_link">
-                    Already have an account?<a href="../Login"> Sign in!</a>
-                </div>
-            </form>
+                    <br></br>
+                    <div className="signup_link">
+                        Already have an account? <a href="../Login">Login!</a>
+                    </div>
+                </form>
+            </div>
         </>
     </div>)
 }

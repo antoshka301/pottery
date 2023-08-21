@@ -49,35 +49,37 @@ export default function Login({ username, setUsername, setToken, setLoggedIn, se
         }
     }
 
-    return (<div className="center">
+    return (<div className="login_signup">
         <>
-            <h2> Log In </h2>
-            <form
-                onSubmit={(event) => {
-                    event.preventDefault()
-                    LoginUser()
+            <div className="login_signup_page">
+                <h2> Log In </h2>
+                <form
+                    onSubmit={(event) => {
+                        event.preventDefault()
+                        LoginUser()
 
-                }}>
-                <div className="txt_field">
-                    <input type="text" required value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
-                    <label>Username: </label>
-                </div>
+                    }}>
+                    <div className="txt_field">
+                        <input type="text" required value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+                        <label>Username: </label>
+                    </div>
 
-                <div className="txt_field">
-                    <input type="password" required value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
-                    <label>Password: </label>
-                </div>
+                    <div className="txt_field">
+                        <input type="password" required value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+                        <label>Password: </label>
+                    </div>
 
-                <button className="input" type="submit">Log In</button>
+                    <button className="login_signup_button" type="submit"><li>Log In</li></button>
 
-                <br></br>
-                <div id="createErrorMessage" className="errors"></div>
-                <br></br>
+                    <br></br>
+                    <div id="createErrorMessage" className="errors"></div>
+                    <br></br>
 
-                <div className="signup_link">
-                    No account?<a href="../Register"> Signup!</a>
-                </div>
-            </form>
+                    <div className="signup_link">
+                        No account? <a href="../Register">Sign up!</a>
+                    </div>
+                </form>
+            </div>
         </>
     </div>)
 }

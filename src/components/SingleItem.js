@@ -144,92 +144,102 @@ export default function SingleItem({
     <>
       <div className="singlepage">
         <div className="singlesquare">
-          <div className="singlepot" key={selectedPot.potid}>
-            <img src={selectedPot.image} width="300" height="300"></img>
-            <form id="editCreature" //PLEASE DO NOT change this ID for CSS purposes it mess up the form
-              onSubmit={async (event) => {
-                event.preventDefault();
-                EditPot();
-              }}
-            >
-              <div>
-                {" "}
-                <h1>{selectedPot.name}
-                  {isAdmin == "true" ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={handleNameClick} className="editbtn">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </>
-                  ) : null}</h1>
-                {nameIsShown == true ? (
-                  <>
-                    <input
-                      type="text"
-                      value={potName}
-                      onChange={(event) => {
-                        setPotName(event.target.value);
-                      }}
-                    ></input>
-                  </>
-                ) : null}
-              </div>
+          <img src={selectedPot.image} width="300" height="300"></img>
+        </div>
+        <div className="potListingInfo" key={selectedPot.potid}>
+          <form id="editPot"
+            onSubmit={async (event) => {
+              event.preventDefault();
+              EditPot();
+            }}
+          >
+            <div className="potListingName">
+              {" "}
+              <div className="nameandedit">
+                {selectedPot.name}
 
-              <div>
-                {" "}
-                <h2>
-                  ${selectedPot.price}
-                  {isAdmin == "true" ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={handlePriceClick} className="editbtn">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </>
-                  ) : null}</h2>
-                {priceIsShown == true ? (
+                {isAdmin == "true" ? (
                   <>
-                    <input
-                      type="text"
-                      value={potPrice}
-                      onChange={(event) => {
-                        setPotPrice(event.target.value);
-                      }}
-                    ></input>
+                    <button
+                      type="button"
+                      onClick={handleNameClick} className="editbtn">
+                      <i class="fa-solid fa-pen-to-square fa-xl" aria-hidden="true"></i>
+                    </button>
                   </>
                 ) : null}
               </div>
+              {nameIsShown == true ? (
+                <>
+                  <input
+                    type="text"
+                    value={potName}
+                    onChange={(event) => {
+                      setPotName(event.target.value);
+                    }}
+                  ></input>
+                </>
+              ) : null}
+            </div>
 
-              <div>
-                {" "}
-                <h3>
-                  {selectedPot.stock} remaining in stock.
-                  {isAdmin == "true" ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={handleStockClick} className="editbtn">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </>
-                  ) : null}</h3>
-                {stockIsShown == true ? (
+
+            <div className="potListingPrice">
+              {" "}
+              <div className="nameandedit">
+                ${selectedPot.price}
+
+                {isAdmin == "true" ? (
                   <>
-                    <input
-                      type="text"
-                      value={potStock}
-                      onChange={(event) => {
-                        setPotStock(event.target.value);
-                      }}
-                    ></input>
+                    <button
+                      type="button"
+                      onClick={handlePriceClick} className="editbtn">
+                      <i class="fa-solid fa-pen-to-square fa-xl" aria-hidden="true"></i>
+                    </button>
                   </>
                 ) : null}
               </div>
-            </form>
-          </div>
+              {priceIsShown == true ? (
+                <>
+                  <input
+                    type="text"
+                    value={potPrice}
+                    onChange={(event) => {
+                      setPotPrice(event.target.value);
+                    }}
+                  ></input>
+                </>
+              ) : null}
+            </div>
+
+
+            <div className="potListingStock">
+              {" "}
+              <div className="nameandedit">
+                {selectedPot.stock} remaining in stock.
+
+                {isAdmin == "true" ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={handleStockClick} className="editbtn">
+                      <i class="fa-solid fa-pen-to-square fa-xl" aria-hidden="true"></i>
+                    </button>
+                  </>
+                ) : null}
+              </div>
+              {stockIsShown == true ? (
+                <>
+                  <input
+                    type="text"
+                    value={potStock}
+                    onChange={(event) => {
+                      setPotStock(event.target.value);
+                    }}
+                  ></input>
+                </>
+              ) : null}
+            </div>
+          </form>
+
 
           <form
             onSubmit={(event) => {
@@ -238,40 +248,48 @@ export default function SingleItem({
             }}
           >
             <div className="qtyandaddtocart">
-              <div className="qty">
-                {" "}
-                Qty:
-                <select name="quantity" id="quantity">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </div>
-              <button className="addtocart">
-                {" "}
-                <a href="./Cart">
+
+              {isAdmin == "false" ? (
+                <div className="qty">
                   {" "}
-                  Add to Cart <i class="fa fa-cart-shopping"></i>
-                </a>
-              </button>
+                  Qty: <span></span>
+                  <select name="quantity" id="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+              ) : null}
+
+              {isAdmin == "false" ? (
+                <button className="addtocart">
+                  {" "}
+                  <a href="./Cart">
+                    {" "}
+                    Add to Cart
+                  </a>
+                </button>
+              ) : null}
+
               <br></br>
               <div id="createErrorMessage" className="errors"></div>
             </div>
           </form>
+
 
           <div className="editanddelete">
             <div>
               {isAdmin == "true" ? (
                 <button
                   type="submit"
-                  form="editCreature" //DO NOT CHANGE THIS FORM TEXT EITHER
+                  form="editPot"
                   onClick={(event) => {
                     event.preventDefault();
                     EditPot(selectedPot);
                   }}
-                  className="deletebtn"
+                  className="login_signup_button"
                 >
-                  Edit
+                  <li>Submit Edits</li>
                 </button>
               ) : null}
             </div>
@@ -283,9 +301,9 @@ export default function SingleItem({
                     event.preventDefault();
                     deletePot(selectedPot.potid);
                   }}
-                  className="deletebtn"
+                  className="login_signup_button"
                 >
-                  Delete
+                  <li>Delete Listing</li>
                 </button>
               ) : null}
             </div>

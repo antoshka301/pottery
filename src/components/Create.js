@@ -172,8 +172,8 @@ export default function Create({ isAdmin }) {
 
               <br></br>
               <br></br>
-              <button className='input' type="submit">
-                Create
+              <button className='login_signup_button' type="submit">
+                <li>Create</li>
               </button>
               <div id="createErrorMessage" ></div>
             </div>

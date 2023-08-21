@@ -4,7 +4,7 @@ import { BrowserRouter, useNavigate, useParams, Routes, Route, Link } from "reac
 
 function Error() {
     return <>
-        Oops! This page doesn't exist. Try navigating back to the home page.
+        <div className="Error">Oops! This page doesn't exist. Try navigating back to the home page.</div>
     </>
 }
 

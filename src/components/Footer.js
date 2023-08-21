@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import reactdomclient from "react-dom/client"
 import { BrowserRouter, useNavigate, useParams, Routes, Route, Link } from "react-router-dom";
+import { SocialIcon } from 'react-social-icons';
 
 function Footer() {
     return <div className="social-footer">
         <section className="footer">
             <div className="social">
-                <a href="https://www.instagram.com/?hl=en" target="_blank"><i className="fab fa-instagram"></i></a>
-                <a href="https://www.snapchat.com/" target="_blank"><i className="fab fa-snapchat"></i></a>
-                <a href="https://twitter.com/?lang=en" target="_blank"><i className="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
+                <a href="https://twitter.com/?lang=en" target="_blank"><i className="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i className="fa fa-facebook"></i></a>
             </div>
             <ul className="list">
                 <li>
@@ -26,7 +26,7 @@ function Footer() {
                 </li>
             </ul>
             <p className="copyright">
-                © pots by emilia
+                © urban mud
             </p>
         </section>
     </div>
