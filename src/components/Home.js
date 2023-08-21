@@ -12,7 +12,7 @@ export default function Home({ pottery, setPottery, selectedPot, setSelectedPot,
         async function getPottery() {
 
             try {
-                const response = await fetch('http://localhost:4000/api/pottery')
+                const response = await fetch('http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/pottery')
                 let data = await response.json()
                 console.log("data******:", data)
                 setPottery(data)

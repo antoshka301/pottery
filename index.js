@@ -16,11 +16,11 @@ server.use(morgan('dev'));
 // Handle application/json requests
 server.use(express.json());
 
-server.get("/", (req, res, next) => {
-  res.send(`
-      <h1>Hello World root index</h1>
-  `);
-});
+// server.get("/", (req, res, next) => {
+//   res.send(`
+//       <h1>Hello World root index</h1>
+//   `);
+// });
 
 // Here's our static files
 const path = require('path');

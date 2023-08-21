@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase";
 
-const server_url = `http://localhost:4000/api/pottery/create`;
+const server_url = `http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/pottery/create`;
 
 export default function Create({ isAdmin }) {
   const navigate = useNavigate()

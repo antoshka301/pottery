@@ -14,7 +14,7 @@ export default function CreateProfile({ setToken, setLoggedIn }) {
                 throw "password must be at least 8 characters"
             }
 
-            const response = await fetch('http://localhost:4000/api/users/register', {
+            const response = await fetch('http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/users/register', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

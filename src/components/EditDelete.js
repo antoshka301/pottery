@@ -17,7 +17,7 @@ export default function EditdeletePot({
   async function EditPot(event) {
 
     try {
-      const response = await fetch(`http://localhost:4000/api/pottery` + selectedPot.potid, {
+      const response = await fetch(`http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/pottery` + selectedPot.potid, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export default function EditdeletePot({
   async function deletePot(event) {
 
     try {
-      const response = await fetch(`http://localhost:4000/api/pottery` + selectedPot.potid, {
+      const response = await fetch(`http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/pottery` + selectedPot.potid, {
         method: "DELETE",
         headers: {
           'Content-Type': 'application/json',

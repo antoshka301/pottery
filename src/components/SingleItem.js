@@ -34,7 +34,7 @@ export default function SingleItem({
 
       try {
         const response = await fetch(
-          "http://localhost:4000/api/pottery/${potid}",
+          "http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/pottery/${potid}",
           {
             method: "GET",
             headers: {
@@ -85,7 +85,7 @@ export default function SingleItem({
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/pottery/edit/${selectedPot.potid}`,
+        `http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/pottery/edit/${selectedPot.potid}`,
         {
           method: "PATCH",
           headers: {
@@ -112,7 +112,7 @@ export default function SingleItem({
   async function deletePot(potid) {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/pottery/${potid}`,
+        `http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/pottery/${potid}`,
         {
           method: "DELETE",
           headers: {

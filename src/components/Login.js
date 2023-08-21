@@ -10,7 +10,7 @@ export default function Login({ username, setUsername, setToken, setLoggedIn, se
     async function LoginUser() {
 
         try {
-            const response = await fetch('http://localhost:4000/api/users/login', {
+            const response = await fetch('http://ec2-52-15-98-37.us-east-2.compute.amazonaws.com:4000/api/users/login', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
